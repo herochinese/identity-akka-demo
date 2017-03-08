@@ -1,0 +1,60 @@
+// Apply the java plugin to add support for Java
+apply plugin: 'application'
+apply plugin: 'java'
+apply plugin: 'scala'
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+mainClassName = "org.identifier.IdentifierApp"
+//mainClassName = "org.identifier.SingleIdentifierApp"
+//applicationDefaultJvmArgs = ["-Dapplication.uuid=6732be3a-1550-3325-b9a5-975fd3c359eb", "-Dapplication.http.port=9899", "-Dclustering.port=2552"]
+
+ext {
+    scalaVersion = "2.11.8"
+}
+
+// In this section you declare where to find the dependencies of your project
+repositories {
+    jcenter()
+    mavenCentral()
+
+}
+
+// In this section you declare the dependencies for your production and test code
+dependencies {
+
+    //Scala
+    compile "org.scala-lang:scala-library:${scalaVersion}"
+
+    // The production code uses the SLF4J logging API at compile time
+    compile 'org.slf4j:slf4j-api:1.7.21'
+    //akka
+    compile 'com.typesafe.akka:akka-actor_2.11:2.4.14'
+    compile 'com.typesafe.akka:akka-stream_2.11:2.4.14'
+    //persistent actor
+    compile 'com.typesafe.akka:akka-persistence_2.11:2.4.14'
+    compile 'org.iq80.leveldb:leveldb:0.7'
+    compile 'org.fusesource.leveldbjni:leveldbjni-all:1.8'
+
+    //cluster
+    compile 'com.typesafe.akka:akka-cluster_2.11:2.4.14'
+    compile 'com.typesafe.akka:akka-cluster-sharding_2.11:2.4.14'
+    compile 'com.typesafe.akka:akka-distributed-data-experimental_2.11:2.4.14'
+
+    //akka-http
+    compile 'com.typesafe.akka:akka-http-core_2.11:10.0.0'
+    compile 'com.typesafe.akka:akka-http_2.11:10.0.0'
+    compile 'com.typesafe.akka:akka-http-spray-json_2.11:10.0.0'
+
+    //
+    compile 'com.github.jbellis:jamm:0.3.1'
+
+    //akka-test
+    testCompile 'com.typesafe.akka:akka-testkit_2.11:2.4.14'
+    testCompile 'com.typesafe.akka:akka-http-testkit_2.11:10.0.0'
+    testCompile "org.scalatest:scalatest_2.11:3.0.1"
+    testCompile 'junit:junit:4.12'
+}
+	
+
