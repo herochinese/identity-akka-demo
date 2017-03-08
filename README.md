@@ -67,7 +67,7 @@ used Cluster Sharding. You could added various nodes into Cluster in order to sc
     3. Run application in different JVM
 
 ##Why I choose them
-Scala is a pure functional language, which make Java developer life easier. Played with Akka not too long, and have a passion for technologies. Prepare to use in real projects.
+Scala is a pure functional language, which make Java developer's life easier. Played with Akka not too long, and have a passion for technologies. Prepare to use in real projects.
 
 
 
